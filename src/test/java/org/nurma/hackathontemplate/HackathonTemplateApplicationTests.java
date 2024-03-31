@@ -1,10 +1,10 @@
-package org.nurma.hackationtemplate;
+package org.nurma.hackathontemplate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HackationTemplateApplicationTests {
+class HackathonTemplateApplicationTests {
 
 	@Test
 	void contextLoads() {
