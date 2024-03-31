@@ -1,13 +1,13 @@
-package org.nurma.hackationtemplate;
+package org.nurma.hackathontemplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HackationTemplateApplication {
+public class HackathonTemplateApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HackationTemplateApplication.class, args);
+		SpringApplication.run(HackathonTemplateApplication.class, args);
 	}
 
 }

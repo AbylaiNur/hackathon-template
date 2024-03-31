@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.nurma</groupId>
-	<artifactId>hackation-template</artifactId>
+	<artifactId>hackathon-template</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hackation-template</name>
-	<description>hackation-template</description>
+	<name>hackathon-template</name>
+	<description>hackathon-template</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
