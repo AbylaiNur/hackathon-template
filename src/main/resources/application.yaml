@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: hackathon-template
+  data:
+    mongodb:
+      uri: ${MONGODB_FULL_URI}
+      database: ${DATABASE_NAME}
+
+logging:
+  file:
+    path: logs
+
+app:
+  jwtAccessSecret: ${JWT_ACCESS_SECRET}
+  jwtRefreshSecret: ${JWT_REFRESH_SECRET}
