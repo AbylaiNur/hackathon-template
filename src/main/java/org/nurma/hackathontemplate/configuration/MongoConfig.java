@@ -1,7 +1,6 @@
 package org.nurma.hackathontemplate.configuration;
 
 import lombok.RequiredArgsConstructor;
-import org.bson.types.ObjectId;
 import org.nurma.hackathontemplate.collection.User;
 import org.nurma.hackathontemplate.service.AuthService;
 import org.springframework.context.annotation.Bean;

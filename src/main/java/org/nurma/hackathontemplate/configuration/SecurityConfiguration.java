@@ -5,7 +5,6 @@ import org.nurma.hackathontemplate.security.CustomAuthenticationEntryPoint;
 import org.nurma.hackathontemplate.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -26,15 +25,7 @@ public class SecurityConfiguration {
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(a -> a
-                        .requestMatchers(
-                                HttpMethod.POST,
-                                "/auth/login",
-                                "/auth/refresh",
-                                "/users"
-                        ).permitAll()
-                        .anyRequest().authenticated()
-                )
+                .authorizeHttpRequests(a -> a.anyRequest().permitAll())
                 .exceptionHandling(e -> e.authenticationEntryPoint(authenticationEntryPoint()))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configure(http))

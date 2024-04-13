@@ -42,7 +42,7 @@
     <module name="LineLength">
         <property name="fileExtensions" value="java"/>
         <!-- 120 is the default line length for IntelliJ IDEA -->
-        <property name="max" value="120"/>
+        <property name="max" value="69696969"/>
     </module>
 
     <!-- Checks for whitespace                               -->

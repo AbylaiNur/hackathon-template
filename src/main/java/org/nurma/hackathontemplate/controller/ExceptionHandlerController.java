@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @RestControllerAdvice
 @Log4j2
@@ -54,6 +55,16 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(value = {ResourceNotFoundException.class})
     public ResponseEntity<Object> handleResourceNotFoundException(final ResourceNotFoundException e) {
+        CustomErrorResponse customErrorResponse = new CustomErrorResponse(
+                ExceptionTitle.NOT_FOUND,
+                e.getMessage()
+        );
+
+        return new ResponseEntity<>(customErrorResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = {NoResourceFoundException.class})
+    public ResponseEntity<Object> handleNoResourceFoundException(final NoResourceFoundException e) {
         CustomErrorResponse customErrorResponse = new CustomErrorResponse(
                 ExceptionTitle.NOT_FOUND,
                 e.getMessage()

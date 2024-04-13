@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -35,7 +34,12 @@ public class Module extends BaseCollection {
     public static class Question {
         private String question;
         private List<String> options;
-        private int answer;
+        private String answer;
+        private QuestionType type;
+    }
+
+    public enum QuestionType {
+        MCQ, MATCH, READING,
     }
 }
 
