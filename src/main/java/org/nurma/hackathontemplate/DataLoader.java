@@ -1,8 +1,11 @@
 package org.nurma.hackathontemplate;
 
 import lombok.RequiredArgsConstructor;
+import org.nurma.hackathontemplate.dto.request.CreateUserRequest;
 import org.nurma.hackathontemplate.service.ModuleService;
+import org.nurma.hackathontemplate.service.UserService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 import org.nurma.hackathontemplate.collection.Module;
 
@@ -11,11 +14,27 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
-
+    private final MongoTemplate mongoTemplate;
     private final ModuleService moduleService;
+    private final UserService userService;
 
     @Override
     public void run(final String... args) {
+        mongoTemplate.getDb().drop();
+
+        List<String> emails = List.of(
+                "zhanibek@gmail.com",
+                "ainur@gmail.com",
+                "nursultan@gmail.com"
+        );
+
+        for (String email : emails) {
+            CreateUserRequest createUserRequest = new CreateUserRequest();
+            createUserRequest.setEmail(email);
+            createUserRequest.setPassword("123456");
+            userService.createUser(createUserRequest);
+        }
+
         List<Module.Question> questions = List.of(
                 Module.Question.builder()
                         .question("Кто убил Кений?")

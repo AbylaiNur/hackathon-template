@@ -18,7 +18,7 @@ public class BaseCollection {
 
     @CreatedBy
     @Field("created_by")
-    private ObjectId createdBy;
+    private String createdBy;
 
     @LastModifiedDate
     @Field("updated_at")
@@ -26,5 +26,5 @@ public class BaseCollection {
 
     @LastModifiedBy
     @Field("updated_by")
-    private ObjectId updatedBy;
+    private String updatedBy;
 }

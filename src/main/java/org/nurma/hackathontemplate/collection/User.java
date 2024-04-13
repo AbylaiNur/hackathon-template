@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -15,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class User extends BaseCollection {
     @Id
     @Setter(AccessLevel.NONE)
-    private ObjectId id;
+    private String id;
 
     @Field("email")
     private String email;

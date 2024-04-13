@@ -18,7 +18,7 @@ import java.util.List;
 public class Module extends BaseCollection {
     @Id
     @Setter(AccessLevel.NONE)
-    private ObjectId id;
+    private String id;
     private String title;
     private List<Lesson> lessons;
 
@@ -27,7 +27,7 @@ public class Module extends BaseCollection {
     public static class Lesson {
         private String title;
         private List<Question> questions;
-        private List<ObjectId> passedStudentIds;
+        private List<String> passedStudentIds;
     }
 
     @Data
