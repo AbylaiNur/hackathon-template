@@ -35,203 +35,124 @@ public class DataLoader implements CommandLineRunner {
             userService.createUser(createUserRequest);
         }
 
-        List<Module.Question> questions = List.of(
-                Module.Question.builder()
-                        .question("""
-                                Hi Samia,
-                                                               \s
-                                Just a quick email to say that sounds like a great idea. Saturday is better for me because I'm meeting my parents on Sunday. So if that's still good for you, why don't you come here? Then you can see the new flat and all the work we've done on the kitchen since we moved in. We can eat at home and then go for a walk in the afternoon. It's going to be so good to catch up finally. I want to hear all about your new job!
-                                                               \s
-                                Our address is 52 Charles Road, but it's a bit difficult to find because the house numbers are really strange here. If you turn left at the post office and keep going past the big white house on Charles Road, there's a small side street behind it with the houses 50–56 in. Don't ask me why the side street doesn't have a different name! But call me if you get lost and I'll come and get you.
-                                                               \s
-                                Let me know if there's anything you do/don't like to eat. Really looking forward to seeing you!
-                                                               \s
-                                See you soon!
-                                                               \s
-                                Gregor"""
-                        )
-                        .type(Module.QuestionType.READING)
-                        .build(),
-                Module.Question.builder()
-                        .question("What day is better for Gregor?")
-                        .options(List.of("Monday", "Tuesday", "Saturday", "Sunday"))
-                        .answer("Saturday")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("Where is Gregor's house?")
-                        .options(List.of("52 Charles Road", "50 Charles Road", "56 Charles Road", "54 Charles Road"))
-                        .answer("52 Charles Road")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("What will they do after eating?")
-                        .options(List.of("Go to the cinema", "Go for a walk", "Go to the park", "Go to the beach"))
-                        .answer("Go for a walk")
-                        .type(Module.QuestionType.MCQ)
-                        .build()
-        );
+        Module.Question question1 = new Module.Question();
+        question1.setQuestion("""
+                Байлық дегеніміз не? Бесінші сыныпта «Байлық дегеніміз не?» атты ашық сабақ жүріп жатты. Оқушылар бір-бірімен әңгімелесіп, өз ойларын айту үшін дайындалып жатыр. Мұғалім үстел бетіндегі қағаздарға қарап, іске кірісті. Балалар, байлық дегеніміз не? Бірінші партада отырған Сәбит қолын көтерді.\s
+                - Байлық дегеніміз көп акша, жаңа машина, деп ойланып қалды. Отыр. Сәбит. Тағы кім жауап береді? Келесі Алмас қол көтерді.\s
+                -Байлыкка қора-қора кой, үйір-үйір жылқы және алты бөлмелі әдемі үй жатады. Мұғалім бұл жауаптарға көңілі толмағанын білдірді.
+                -Қане, кім калай жауап береді? Иә. Сайлаубек, сен айта қойшы!\s
+                -Байлық дегеніміз-кітап, білім,- деп жауап айтты.\s
+                -Жарайды, отыра ғой. Жақсы жауап. Біраз уақыттан бері қол көтеріп отырған Сәулеге де сөз берілді.\s
+                -Біздің үйде түрлі-түсті теледидар, бейнемагнитофон және жаңа үй жиһаздары көп. Байлық дегеніміз осы. Жақсы, отыра бер. Бұдан кейін Серік, Нұрболат, Құралай есімді оқушылар үйдегі
+                байлықтарын ортаға салды. Оқушылардың берген жауаптары мұғалім көңілінен шықпады. Бір кезде оның көзі артқы партада үндемей өзімен-өзі отырған Аманжолға түсті.\s
+                -Аманжол, сен неге үндемей отырсын? Қане, байлық дегеніміз не? Айта қойшы.\s
+                -Апай, мен бай емеспін. Мен үшін ең үлкен байлық әкем мен анам, - деп жауап берді. Мұғалімге оқушының жауабы қатты ұнады.\s
+                -Көрдіңдер ме, балалар, байлық дегеніміз тек ақша емес. Сендердің ең бірінші байлықтарың Аманжол айтқандай, ата-аналарың мен бауырларың, туысқандарың. Сондықтан әрқашан отбасыларың аман болсын. Міне, байлық деген осы. Бұл жауаптан кейін ешкім қол көтермеді.
+                Оқушылар ойланып қалды.""");
+        question1.setType(Module.QuestionType.READING);
+        Module.Question question2 = new Module.Question();
+        question2.setQuestion("Мәтінде жауабы бар сұрақты таңдаңыз.");
+        question2.setOptions(List.of("Бірінші байлық дегеніміз не?", "Отбасы тәрбиесі қандай?", "Қалай бай болуға болады?", "Ашық сабақ қайда өтті?"));
+        question2.setAnswer("Бірінші байлық дегеніміз не?");
+        question2.setType(Module.QuestionType.MCQ);
+        Module.Question question3 = new Module.Question();
+        question3.setQuestion("Мәтінге сәйкес ақпаратты таңдаңыз.");
+        question3.setOptions(List.of("Сайлаубек байлықты кітап оқу деп түсінеді.", "Балалардың байлық туралы түсініктері бірдей.", "Сәуле байлықты теледидар көру деп түсінеді.", "Балалардың байлық туралы түсініктері жоқ болып шықты."));
+        question3.setAnswer("Сайлаубек байлықты кітап оқу деп түсінеді.");
+        question3.setType(Module.QuestionType.MCQ);
+        Module.Question question4 = new Module.Question();
+        question4.setQuestion("Мәтіндегі басты тірек сөздерді табыңыз.");
+        question4.setOptions(List.of("байлық, кітап, білім, жиһаз", "мұғалім, ашық сабақ, оқушы, байлық", "отбасы, байлық, теледидар, көзқарас", "байлық, ата-ана, ашық сабақ, бейнемагнитофон"));
+        question4.setAnswer("мұғалім, ашық сабақ, оқушы, байлық");
+        question4.setType(Module.QuestionType.MCQ);
+        Module.Question question5 = new Module.Question();
+        question5.setQuestion("Мәтін мазмұнына сәйкес жауапты табыңыз. Байлық туралы Аманжолдың ойы қандай?");
+        question5.setOptions(List.of("Адамға керегі жиһаз, ақша.", "Байлық дегеніміз - кітап, білім.", "Өмірде ең басты байлық әке-шеше.", "Адам үшін бірінші байлық алты бөлмелі үй."));
+        question5.setAnswer("Өмірде ең басты байлық әке-шеше.");
+        question5.setType(Module.QuestionType.MCQ);
+        Module.Question question6 = new Module.Question();
+        question6.setQuestion("Мәтіндегі негізгі ойды анықтаңыз.");
+        question6.setOptions(List.of("Аманжолдың ата-анасы.", "Отбасы басты байлық болып саналады.", "Байлық-денсаулық кепілі бола алады.", "Мектепте ашық сабақ өткен."));
+        question6.setAnswer("Отбасы басты байлық болып саналады.");
+        question6.setType(Module.QuestionType.MCQ);
 
-        List<Module.Question> questions2 = List.of(
-                Module.Question.builder()
-                        .question("""
-                                                                What can I take on the plane as hand luggage?
-                                Please note that passengers can only take ONE suitcase onto the plane. It must be no bigger than 55cm x 22cm x 35cm and weigh no more than 10kg.
+        List<Module.Question> readingQuestions = List.of(question1, question2, question3, question4, question5, question6);
 
-                                You can also take one small laptop bag or handbag that can fit under the seat in front of you. If you have two bags, their total weight cannot be more than 10kg. If your bag is too big or too heavy, you will not be allowed to take it onto the plane. Staff will put it in the hold for you and you will have to pay extra.
+        Module.Question question7 = new Module.Question();
+        question7.setQuestion("«Әдемі» сөзінің синонимін анықтаңыз");
+        question7.setOptions(List.of("жаман", "үлкен", "кеш", "сұлу"));
+        question7.setAnswer("сұлу");
+        question7.setType(Module.QuestionType.MCQ);
+        Module.Question question8 = new Module.Question();
+        question8.setQuestion("Ұяңнан басталып,ұянға аяқталған сөзді табыңыз");
+        question8.setOptions(List.of("тоғыз", "жүз", "бір", "сегіз"));
+        question8.setAnswer("жүз");
+        question8.setType(Module.QuestionType.MCQ);
+        Module.Question question9 = new Module.Question();
+        question9.setQuestion("Қатаң дауыссыз дыбыстардан тұратын сөзді анықтаңыз");
+        question9.setOptions(List.of("сәлем", "тіл", "оқушы", "арман"));
+        question9.setAnswer("сәлем");
+        question9.setType(Module.QuestionType.MCQ);
+        Module.Question question10 = new Module.Question();
+        question10.setQuestion("Жұрнақ арқылы жасалған зат есімді анықтаңыз");
+        question10.setOptions(List.of("үй", "достық", "арман", "көл"));
+        question10.setAnswer("достық");
+        question10.setType(Module.QuestionType.MCQ);
+        Module.Question question11 = new Module.Question();
+        question11.setQuestion("Синонимдерді табыңыз");
+        question11.setOptions(List.of("кітап,парақ", "бет,жүз", "ғылым,ғалым", "білім,тәлімгер"));
+        question11.setAnswer("білім,тәлімгер");
+        question11.setType(Module.QuestionType.MCQ);
 
-                                Please make sure mobile phones and other devices are fully charged so that security staff can check them.
+        List<Module.Question> grammarQuestions = List.of(question7, question8, question9, question10, question11);
 
-                                Liquids in bottles bigger than 100ml are allowed on board if you buy them in the airport shops after you've passed security. 
+        Module.Question question12 = new Module.Question();
+        question12.setQuestion("Ғылым таппай мақтанба.\n" +
+                "Орын таппай баптанба.\n" +
+                "Құмарланып шаттанба.\n" +
+                "Ойнап босқа күлуге.");
+        question12.setType(Module.QuestionType.AUDIO);
+        Module.Question question13 = new Module.Question();
+        question13.setQuestion("""
+                Ақ киімді, денелі, ақ сақалды,
+                Соқыр мылқау танымас тірі жанды.
+                Үсті-басы ақ қырау түсі суық,
+                Басқан жері сықырлап келіп қалды.
+                """);
+        question13.setType(Module.QuestionType.AUDIO);
+        Module.Question question14 = new Module.Question();
+        question14.setQuestion("""
+                Баяғы бір заманда бай мен кедей көрші өмір сүріпті. Олардың араздығы сондай, бірін-бірі көргісі келмейді екен. Байдың үйі кең, әдемі болыпты. Іші толған – алтын мен күміс.
+                """);
+        question14.setType(Module.QuestionType.AUDIO);
 
-                                We hope you enjoy your flight!""")
-                        .type(Module.QuestionType.READING)
-                        .build(),
-                Module.Question.builder()
-                        .question("How many bags can you take on the plane?")
-                        .options(List.of("One", "Two", "Three", "Four"))
-                        .answer("One")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("What is the maximum weight of the suitcase?")
-                        .options(List.of("5kg", "10kg", "15kg", "20kg"))
-                        .answer("10kg")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("What will happen if your bag is too big or too heavy?")
-                        .options(List.of("You will not be allowed to take it onto the plane", "You will have to pay extra", "You will be allowed to take it onto the plane", "You will have to leave it at the airport"))
-                        .answer("You will not be allowed to take it onto the plane")
-                        .type(Module.QuestionType.MCQ)
-                        .build()
-        );
+        List<Module.Question> listeningQuestions = List.of(question12, question13, question14);
 
-        List<Module.Lesson> lessons = List.of(
-                Module.Lesson.builder()
-                        .title("Lesson 1")
-                        .questions(questions)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 2")
-                        .questions(questions2)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 3")
-                        .questions(questions)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 4")
-                        .questions(questions2)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 5")
-                        .questions(questions)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 6")
-                        .questions(questions2)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 7")
-                        .questions(questions)
-                        .build()
-        );
+        Module module1 = new Module();
+        module1.setTitle("Бастапқы этап, 1 бөлім");
 
-        Module readingModule = Module.builder()
-                .title("Reading Module")
-                .lessons(lessons)
-                .build();
+        Module.Lesson lesson1 = new Module.Lesson();
+        lesson1.setTitle("Оқу және түсіну");
+        lesson1.setQuestions(readingQuestions);
+        Module.Lesson lesson2 = new Module.Lesson();
+        lesson2.setTitle("Грамматика");
+        lesson2.setQuestions(grammarQuestions);
+        Module.Lesson lesson3 = new Module.Lesson();
+        lesson3.setTitle("Тыңдау және сөйлеу");
+        lesson3.setQuestions(listeningQuestions);
 
-        moduleService.createModule(readingModule);
+        List<Module.Lesson> lessons = List.of(lesson1, lesson2, lesson3);
+        module1.setLessons(lessons);
+        moduleService.createModule(module1);
 
-        // GRAMMAR MODULE
-        List<Module.Question> grammarQuestions = List.of(
-                Module.Question.builder()
-                        .question("I _______ to the cinema last night.")
-                        .options(List.of("go", "went", "goes", "going"))
-                        .answer("went")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("I am doing my homework now")
-                        .answer("Я делаю свою домашнюю работу сейчас")
-                        .type(Module.QuestionType.MATCH)
-                        .build(),
-                Module.Question.builder()
-                        .question("She _______ a book now.")
-                        .options(List.of("read", "reads", "is reading", "reading"))
-                        .answer("is reading")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("He goes to the gym every day")
-                        .answer("Он ходит в спортзал каждый день")
-                        .type(Module.QuestionType.MATCH)
-                        .build()
-        );
+        Module module2 = new Module();
+        module2.setTitle("Орташа этап, 2 бөлім");
+        module2.setLessons(lessons);
+        moduleService.createModule(module2);
 
-        List<Module.Question> grammarQuestions2 = List.of(
-                Module.Question.builder()
-                        .question("I go to the cinema")
-                        .answer("Я иду в кино")
-                        .type(Module.QuestionType.MATCH)
-                        .build(),
-                Module.Question.builder()
-                        .question("I _______ my homework now.")
-                        .options(List.of("do", "does", "am doing", "doing"))
-                        .answer("am doing")
-                        .type(Module.QuestionType.MCQ)
-                        .build(),
-                Module.Question.builder()
-                        .question("She is reading a book now")
-                        .answer("Она читает книгу сейчас")
-                        .type(Module.QuestionType.MATCH)
-                        .build(),
-                Module.Question.builder()
-                        .question("He _______ to the gym every day.")
-                        .options(List.of("go", "goes", "went", "going"))
-                        .answer("goes")
-                        .type(Module.QuestionType.MCQ)
-                        .build()
-        );
-
-        List<Module.Lesson> grammarLessons = List.of(
-                Module.Lesson.builder()
-                        .title("Lesson 1")
-                        .questions(grammarQuestions)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 2")
-                        .questions(grammarQuestions2)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 3")
-                        .questions(grammarQuestions)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 4")
-                        .questions(grammarQuestions2)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 5")
-                        .questions(grammarQuestions)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 6")
-                        .questions(grammarQuestions2)
-                        .build(),
-                Module.Lesson.builder()
-                        .title("Lesson 7")
-                        .questions(grammarQuestions)
-                        .build()
-        );
-
-        Module grammarModule = Module.builder()
-                .title("Grammar Module")
-                .lessons(grammarLessons)
-                .build();
-
-        moduleService.createModule(grammarModule);
+        Module module3 = new Module();
+        module3.setTitle("Ілгері этап, 3 бөлім");
+        module3.setLessons(lessons);
+        moduleService.createModule(module3);
     }
 }
